@@ -27,3 +27,9 @@
 
 # Ignore master key for decrypting credentials and more.
 /config/master.key
+
+# Ignore databse.yml 
+config/database.yml
+
+# Ignore node modules
+node_modules/
