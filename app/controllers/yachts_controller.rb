@@ -18,9 +18,15 @@ class YachtsController < ApplicationController
     @yacht = Yacht.new(yacht_params)
 
     if @yacht.save
-      render json: @yacht, status: :created, location: @yacht
+      render json: {
+        status: 200,
+        yacht: @yacht
+      }
     else
-      render json: @yacht.errors, status: :unprocessable_entity
+      render json: {
+        status: 404,
+        errorMessage: @yacht.errors.full_messages.to_sentence
+      }
     end
   end
 
