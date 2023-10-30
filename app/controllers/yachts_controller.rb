@@ -20,12 +20,12 @@ class YachtsController < ApplicationController
     if @yacht.save
       render json: {
         status: 200,
-        yacht: @yacht
-      }
+        yacht: @yacht,
+      }, location: @yacht
     else
       render json: {
         status: 404,
-        errorMessage: @yacht.errors.full_messages.to_sentence
+        errorMessage: @yacht.errors.full_messages.to_sentence,
       }
     end
   end
