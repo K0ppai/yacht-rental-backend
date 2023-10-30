@@ -1,7 +1,7 @@
 class Reservation < ApplicationRecord
-  belongs_to :yacht, class_name: "Yacht", foreign_key: "yacht_id"
-  belongs_to :user, class_name: "User", foreign_key: "user_id"
-  belongs_to :city, class_name: "City", foreign_key: "city_id"
+  belongs_to :yacht, class_name: 'Yacht', foreign_key: 'yacht_id'
+  belongs_to :user, class_name: 'User', foreign_key: 'user_id'
+  belongs_to :city, class_name: 'City', foreign_key: 'city_id'
 
   validates :start_date, presence: true
   validates :end_date, presence: true
@@ -28,19 +28,19 @@ class Reservation < ApplicationRecord
 
     overlapping_reservations = Reservation.where(
       yacht:,
-      city:,
+      city:
     ).where(
-      "(:new_start_date BETWEEN start_date AND end_date) OR (:new_end_date BETWEEN start_date AND end_date)",
+      '(:new_start_date BETWEEN start_date AND end_date) OR (:new_end_date BETWEEN start_date AND end_date)',
       new_start_date: start_date,
-      new_end_date: end_date,
+      new_end_date: end_date
     )
 
-    errors.add(:base, "Yacht is not available during this period in this city but you can reserve this yacht in another city.") if overlapping_reservations.any?
+    errors.add(:base, 'Yacht is not available during this period in this city but you can reserve this yacht in another city.') if overlapping_reservations.any?
   end
 
   def start_date_before_end_date
-    if start_date >= end_date
-      errors.add(:base, "Start date have to be earlier than end date.")
-    end
+    return unless start_date >= end_date
+
+    errors.add(:base, 'Start date have to be earlier than end date.')
   end
 end

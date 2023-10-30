@@ -19,12 +19,12 @@ class ReservationsController < ApplicationController
 
     if @reservation.save
       render json: { reservation: @reservation,
-                status: 200 }, status: :created, location: @reservation
+                     status: 200 }, status: :created, location: @reservation
     else
       render json: {
-               status: 404,
-               errorMessage: @reservation.errors.full_messages.to_sentence,
-             }
+        status: 404,
+        errorMessage: @reservation.errors.full_messages.to_sentence
+      }
     end
   end
 
