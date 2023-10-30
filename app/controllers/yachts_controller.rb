@@ -41,7 +41,11 @@ class YachtsController < ApplicationController
 
   # DELETE /yachts/1
   def destroy
-    @yacht.destroy
+    if @yacht.destroy
+      render json: { id: @yacht.id }
+    else
+      render json: { error: 'Failed to delete yacht' }, status: :unprocessable_entity
+    end
   end
 
   private
