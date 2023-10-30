@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'cities/index'
   devise_for :users, path: '', path_names: {
                                  sign_in: 'login',
                                  sign_out: 'logout',
@@ -9,6 +10,7 @@ Rails.application.routes.draw do
                        registrations: 'users/registrations'
                      }
   resources :reservations
+  resources :cities, only: [:index]
   resources :yachts
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
