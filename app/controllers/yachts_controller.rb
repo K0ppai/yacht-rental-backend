@@ -21,7 +21,7 @@ class YachtsController < ApplicationController
       render json: {
         status: 200,
         yacht: @yacht
-      }
+      }, location: @yacht
     else
       render json: {
         status: 404,
