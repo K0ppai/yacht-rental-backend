@@ -34,5 +34,3 @@ config/database.yml
 # Ignore node modules
 node_modules/
 
-# Ignore the credientials 
-config/credentials.yml.enc
