@@ -82,3 +82,6 @@ test:
 production:
   <<: *default
   url: <%= ENV['DATABASE_URL'] %>
+  database: yacht_rental_backend_production
+  username: yacht_rental_backend
+  password: <%= ENV["YACHT_RENTAL_BACKEND_DATABASE_PASSWORD"] %>
