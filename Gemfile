@@ -15,6 +15,9 @@ gem 'puma', '~> 5.0'
 # Use rubocop
 gem 'rubocop', '>= 1.0', '< 2.0'
 
+# Install Rswag for api documentation
+gem 'rswag'
+
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 # gem "jbuilder"
 
