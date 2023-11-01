@@ -1,0 +1,28 @@
+
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  # For details on connection pooling, see Rails configuration guide
+  # https://guides.rubyonrails.org/configuring.html#database-pooling
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+
+development:
+  <<: *default
+  database: yacht_rental_backend_development
+  username: postgres
+  password: 719171
+
+
+test:
+  <<: *default
+  database: yacht_rental_backend_test
+  username: postgres
+  password: 719171
+
+
+production:
+  <<: *default
+  url: <%= ENV['DATABASE_URL'] %>
+  database: yacht_rental_backend_production
+  username: yacht_rental_backend
+  password: <%= ENV["YACHT_RENTAL_BACKEND_DATABASE_PASSWORD"] %>
