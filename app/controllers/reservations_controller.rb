@@ -3,9 +3,21 @@ class ReservationsController < ApplicationController
 
   # GET /reservations
   def index
-    @reservations = Reservation.all
+    @reservations = Reservation.all.includes(:yacht, :city, :user)
+    data = @reservations.map do |reservation|
+      {
+        id: reservation.id,
+        start_date: reservation.start_date,
+        end_date: reservation.end_date,
+        total_value: reservation.total_value,
+        city: reservation.city.name,
+        user: reservation.user.name,
+        yacht: reservation.yacht.name,
+        image: reservation.yacht.image
+      }
+    end
 
-    render json: @reservations
+    render json: data
   end
 
   # GET /reservations/1
@@ -39,7 +51,9 @@ class ReservationsController < ApplicationController
 
   # DELETE /reservations/1
   def destroy
-    @reservation.destroy
+    return unless @reservation.destroy
+
+    render json: { id: @reservation.id }
   end
 
   private
