@@ -12,6 +12,7 @@ class ReservationsController < ApplicationController
         total_value: reservation.total_value,
         city: reservation.city.name,
         user: reservation.user.name,
+        user_id: reservation.user.id,
         yacht: reservation.yacht.name,
         image: reservation.yacht.image
       }
