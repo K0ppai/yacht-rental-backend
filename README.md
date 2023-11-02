@@ -39,16 +39,6 @@
 ### Tech Stack <a name="tech-stack"></a>
 
 <details>
- <summary>Client</summary>
-  <ul>
-    <li><a href="https://react.dev/">ReactJS</a></li>
-  </ul>
-  <ul>
-    <li><a href="https://tailwindcss.com/">Tailwind CSS</a></li>
-  </ul>
-</details>
-
-<details>
   <summary>Server</summary>
   <ul>
     <li><a href="https://rubyonrails.org/">Ruby on Rails</a></li>
