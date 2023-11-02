@@ -11,6 +11,7 @@
     - [Tech Stack](#tech-stack)
     - [Key Features](#key-features)
   - [🚀 Live Demo](#live-demo)
+  - [ ERD Diagram](#erd-diagram)
   - [Kanban Board](#Kanban-Board)
 - [💻 Getting Started](#getting-started)
   - [Setup](#setup)
@@ -72,6 +73,10 @@
 
 - <a href="https://beta-yacht-rental.netlify.app/">Yacht Rental Live</a>
 - <a href="https://beta-yacht-rental.onrender.com/api-docs/index.html">API Documentation</a>
+
+##  ERD Diagram <a name="erd-diagram"></a>
+
+<img src="./image.png" alt="logo" width="auto"  height="auto" />
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
