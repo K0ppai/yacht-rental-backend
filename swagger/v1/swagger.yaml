@@ -40,8 +40,6 @@ paths:
                 image:
                   type: string
                 fee_per_day:
-                  type: decimal
-                specialization_id:
                   type: integer
               required:
               - name
@@ -219,7 +217,7 @@ paths:
           description: Logged out successfully
     
 servers:
-- url: https://{defaultHost}
+- url: https://beta-yacht-rental.onrender.com
   variables:
     defaultHost:
-      default: 127.0.0.1:3000
+      default: https://beta-yacht-rental.onrender.com
