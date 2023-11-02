@@ -149,6 +149,20 @@ Run
 ```sh
   rake rswag:specs:swaggerize
 ```
+### If you're trying to run the app on local, kindly set up the following,
+
+- Generate a secret by typing this cmd in the terminal:
+```sh
+ bundle exec rake secret
+``` 
+
+```sh
+ EDITOR='code --wait' rails credentials:edit 
+``` 
+ 
+- and once the encrypted .yml is opened
+- Copy this `devise_jwt_secret_key: (copy and paste the generated secret here)`
+- After copying the secret key in the encrypted .yml file, close it to save. For further information, kindly visit this [link](https://sdrmike.medium.com/rails-7-api-only-app-with-devise-and-jwt-for-authentication-1397211fb97c).
 
 ### Deployment
 
