@@ -29,10 +29,10 @@
 /config/master.key
 
 # Ignore databse.yml 
-config/database.yml
+# config/database.yml
 
 # Ignore node modules
 node_modules/
 
 # Ignore the credientials 
-config/credentials.yml.enc
+# config/credentials.yml.enc

@@ -256,6 +256,7 @@ PLATFORMS
 
 DEPENDENCIES
   bootsnap
+  bundler
   debug
   devise
   devise-jwt
