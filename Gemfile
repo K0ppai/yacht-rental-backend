@@ -52,7 +52,7 @@ group :development do
   # gem "spring"
 end
 
+gem 'bundler'
 gem 'devise'
 gem 'devise-jwt'
-gem 'bundler'gem 'jsonapi-serializer'
-
+gem 'jsonapi-serializer'
