@@ -54,5 +54,5 @@ end
 
 gem 'devise'
 gem 'devise-jwt'
-gem 'jsonapi-serializer'
-gem 'bundler'
+gem 'bundler'gem 'jsonapi-serializer'
+
