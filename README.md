@@ -18,7 +18,6 @@
   - [Prerequisites](#prerequisites)
   - [Install](#install)
   - [Usage](#usage)
-  - [Run tests](#run-tests)
   - [Deployment](#deployment)
 - [👥 Authors](#authors)
 - [🔭 Future Features](#future-features)
@@ -130,11 +129,6 @@ To run the project, execute the following command:
   rails server
 ```
 
-To run tests, run the following command:
-
-```sh
-  rspec ./spec/models
-```
 To run tests for controllers(request) and for API Documentation, run the following command:
 
 Install the gem -
@@ -146,12 +140,11 @@ Run
   rails generate rswag:install
 ```
 
-```sh
-  rake rswag:specs:swaggerize
-```
 ### If you're trying to run the app on local, kindly set up the following,
 
+- You need to delete config/credentials.yml.enc first.
 - Generate a secret by typing this cmd in the terminal:
+
 ```sh
  bundle exec rake secret
 ``` 
@@ -163,6 +156,32 @@ Run
 - and once the encrypted .yml is opened
 - Copy this `devise_jwt_secret_key: (copy and paste the generated secret here)`
 - After copying the secret key in the encrypted .yml file, close it to save. For further information, kindly visit this [link](https://sdrmike.medium.com/rails-7-api-only-app-with-devise-and-jwt-for-authentication-1397211fb97c).
+
+### Update CORS
+
+- config/initializers/cors.rb
+
+```sh
+Rails.application.config.middleware.insert_before 0, Rack::Cors do
+  allow do
+    origins 'https://localhost:5173'
+    resource '*',
+             headers: :any,
+             methods: %i[get post put patch delete options head],
+             expose: [:Authorization]
+  end
+
+  allow do
+    origins '*' # Your frontend app deploy link
+    resource '*',
+             headers: :any,
+             methods: %i[get post put patch delete options head],
+             expose: [:Authorization]
+  end
+end
+
+```
+- If you want to run in local dev kindly update origins to your frontend app url.
 
 ### Deployment
 
