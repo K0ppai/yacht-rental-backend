@@ -11,13 +11,13 @@
     - [Tech Stack](#tech-stack)
     - [Key Features](#key-features)
   - [🚀 Live Demo](#live-demo)
+  - [ ERD Diagram](#erd-diagram)
   - [Kanban Board](#Kanban-Board)
 - [💻 Getting Started](#getting-started)
   - [Setup](#setup)
   - [Prerequisites](#prerequisites)
   - [Install](#install)
   - [Usage](#usage)
-  - [Run tests](#run-tests)
   - [Deployment](#deployment)
 - [👥 Authors](#authors)
 - [🔭 Future Features](#future-features)
@@ -37,16 +37,6 @@
 ## 🛠 Built With <a name="built-with"></a>
 
 ### Tech Stack <a name="tech-stack"></a>
-
-<details>
- <summary>Client</summary>
-  <ul>
-    <li><a href="https://react.dev/">ReactJS</a></li>
-  </ul>
-  <ul>
-    <li><a href="https://tailwindcss.com/">Tailwind CSS</a></li>
-  </ul>
-</details>
 
 <details>
   <summary>Server</summary>
@@ -80,8 +70,12 @@
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
-- <a href="#">Yacht Rental Live</a>
-- <a href="#">Yacht Rental Backend API</a>
+- <a href="https://beta-yacht-rental.netlify.app/">Yacht Rental Live</a>
+- <a href="https://beta-yacht-rental.onrender.com/api-docs/index.html">API Documentation</a>
+
+##  ERD Diagram <a name="erd-diagram"></a>
+
+<img src="./image.png" alt="logo" width="auto"  height="auto" />
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -135,11 +129,6 @@ To run the project, execute the following command:
   rails server
 ```
 
-To run tests, run the following command:
-
-```sh
-  rspec ./spec/models
-```
 To run tests for controllers(request) and for API Documentation, run the following command:
 
 Install the gem -
@@ -151,9 +140,48 @@ Run
   rails generate rswag:install
 ```
 
+### If you're trying to run the app on local, kindly set up the following,
+
+- You need to delete config/credentials.yml.enc first.
+- Generate a secret by typing this cmd in the terminal:
+
 ```sh
-  rake rswag:specs:swaggerize
+ bundle exec rake secret
+``` 
+
+```sh
+ EDITOR='code --wait' rails credentials:edit 
+``` 
+ 
+- and once the encrypted .yml is opened
+- Copy this `devise_jwt_secret_key: (copy and paste the generated secret here)`
+- After copying the secret key in the encrypted .yml file, close it to save. For further information, kindly visit this [link](https://sdrmike.medium.com/rails-7-api-only-app-with-devise-and-jwt-for-authentication-1397211fb97c).
+
+### Update CORS
+
+- config/initializers/cors.rb
+
+```sh
+Rails.application.config.middleware.insert_before 0, Rack::Cors do
+  allow do
+    origins 'https://localhost:5173'
+    resource '*',
+             headers: :any,
+             methods: %i[get post put patch delete options head],
+             expose: [:Authorization]
+  end
+
+  allow do
+    origins '*' # Your frontend app deploy link
+    resource '*',
+             headers: :any,
+             methods: %i[get post put patch delete options head],
+             expose: [:Authorization]
+  end
+end
+
 ```
+- If you want to run in local dev kindly update origins to your frontend app url.
 
 ### Deployment
 
