@@ -11,6 +11,7 @@
     - [Tech Stack](#tech-stack)
     - [Key Features](#key-features)
   - [🚀 Live Demo](#live-demo)
+  - [Kanban Board ](#kanban-board-)
   - [ ERD Diagram](#erd-diagram)
   - [Kanban Board](#Kanban-Board)
 - [💻 Getting Started](#getting-started)
@@ -72,6 +73,11 @@
 
 - <a href="https://beta-yacht-rental.netlify.app/">Yacht Rental Live</a>
 - <a href="https://beta-yacht-rental.onrender.com/api-docs/index.html">API Documentation</a>
+
+## Kanban Board <a name="Kanban-Board"></a>
+- <a href="https://github.com/K0ppai/yacht-rental-backend/projects/1">Kanban Board Link</a>
+- <a href="https://github.com/K0ppai/yacht-rental-backend/issues/12">Initial State ScreenShot</a>
+- We are a three-person team.
 
 ##  ERD Diagram <a name="erd-diagram"></a>
 
